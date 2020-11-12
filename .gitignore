@@ -1,0 +1,8 @@
+.history
+*.hi
+*.o
+src/*.hi
+src/*.o
+.ghci
+Main
+dist/
