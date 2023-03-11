@@ -2,14 +2,14 @@
 {-# OPTIONS_GHC -fwarn-incomplete-patterns #-}
 module Pretty where
 
-import Text.Printf
+import Text.Printf ( printf )
 import Syntax
 import Type
 
 instance Show (STy t) where
   show SInt         = "Int"
   show SBool        = "Bool"
-  show (SArr t1 t2) = printf "%s -> %s" (show t1) (show t2)
+  show (SArr t1 t2) = printf "(%s -> %s)" (show t1) (show t2)
 
 elem_to_int :: Elem ctx ty -> Int
 elem_to_int EZ = 0
@@ -24,7 +24,7 @@ instance Show (ArithOp t) where
 
 instance Show (Expr ctx ty) where
   show (VarE elem)       = "#" ++ show (elem_to_int elem)
-  show (LamE body)       = "λ#." ++ (show body)
+  show (LamE body)       = printf "(λ#. %s)" (show body)
   show (AppE e1 e2)      = (show e1) ++ " " ++ (show e2)
   show (IntE x)          = show x
   show (LetE e1 e2)      = printf "let # = %s in %s" (show e1) (show e2)

@@ -8,7 +8,8 @@ Run
 cabal configure
 cabal build
 ```
-Then run the executable ```./dist/build/gadt-STLC/gadt-STLC```
+
+Then run ```cabal run gadt-STLC```
 
 ## Language
 The language is just simply-typed lambda calculus with recursion.
