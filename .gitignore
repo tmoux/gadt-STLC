@@ -6,3 +6,5 @@ src/*.o
 .ghci
 Main
 dist/
+dist-newstyle/
+cabal.project.local*
